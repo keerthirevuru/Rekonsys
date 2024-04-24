@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+
 
 const LoginForm = () => {
  const [email, setEmail] = useState('');
  const [password, setPassword] = useState('');
+ const [redirectToDashboard, setRedirectToDashboard] = useState(false);
 
 
 const handleSubmit = async (e) => {
@@ -16,6 +19,7 @@ const handleSubmit = async (e) => {
       .then(response => {
         console.log(response.data);
         alert("Login  successfully");
+        setRedirectToDashboard(true)
       })
       .catch(error => {
         console.error("Error submitting form:", error);
@@ -23,13 +27,9 @@ const handleSubmit = async (e) => {
       });
  };
 
-
-//  const handleSubmit = (event) => {
-//     event.preventDefault();
-    
-//     // Here you would typically send the email and password to your backend for authentication
-//     console.log('Email: ${email}, Password: ${password}');
-//  };
+ if (redirectToDashboard) {
+    return <Navigate to="/dashboard" />;
+  }
 
  return (
   <div className='flex flex-col items-center justify-center w-100'>
@@ -63,7 +63,7 @@ const handleSubmit = async (e) => {
                   </div>
                   <button  className="w-full text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                      Don’t have an account yet? <a href="#" className="font-medium text-blue-600 hover:underline dark:text-primary-500">Sign up</a>
+                      Don’t have an account yet? <Link to='/register' className="font-medium text-blue-600 hover:underline dark:text-primary-500">Sign up</Link>
                   </p>
               </form>
           </div>

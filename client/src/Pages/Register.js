@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Register = () => {
  const [data, setData] = useState({
@@ -7,6 +8,7 @@ const Register = () => {
     Username: "",
     Password: ""
  });
+ const [redirectToLogin, setRedirectToLogin] = useState(false);
 
  const { Emailaddress, Username, Password } = data;
 
@@ -21,12 +23,18 @@ const Register = () => {
       .then(response => {
         console.log(response.data);
         alert("Submitted successfully");
+        setRedirectToLogin(true);
       })
       .catch(error => {
         console.error("Error submitting form:", error);
         alert("Error submitting form: " + error.message);
       });
  };
+
+ if (redirectToLogin) {
+  return <Navigate to="/login" />;
+}
+ 
 
  return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">

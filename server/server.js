@@ -7,7 +7,7 @@ const Users = require("./models/User")
 const app = express();
 const port = 5000;
 
-const mongoURI = 'mongodb://localhost:27017/rekonsys';
+const mongoURI = 'mongodb+srv://keerthi:5qH58w6UqBI0Hj9D@cluster0.7gsft1q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
