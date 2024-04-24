@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const handleProfileClick = () => {
@@ -11,8 +12,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="text-white font-bold text-lg">Rekonsys</div>
         <div className='flex items-center'>
-          <a href="/login" className="text-white hover:text-gray-300 mr-4">Login</a>
-          <a href="/register" className="text-white hover:text-gray-300">Register</a>
+          <Link to="/login" className="text-white hover:text-gray-300 mr-4">Login</Link>
+          <Link to="/register" className="text-white hover:text-gray-300">Register</Link>
           
         </div>
       </div>
