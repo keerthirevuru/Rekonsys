@@ -15,7 +15,7 @@ const handleSubmit = async (e) => {
 //   const data = {email:Emailaddress,username:Username,password:Password}
     // console.log({email, password})
     e.preventDefault();
-     await axios.post('http://localhost:5000/login', {email, password})
+     await axios.post('https://rekonsys.onrender.com/login', {email, password})
       .then(response => {
         console.log(response.data);
         alert("Login  successfully");

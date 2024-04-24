@@ -23,12 +23,12 @@ console.log(generateRandomNumber())
     }
 
     try {
-      const response = await axios.get(`http://localhost:5000/check_email?email=${email}`);
+      const response = await axios.get(`https://rekonsys.onrender.com/check_email?email=${email}`);
       if (response.status === 200) {
         const OTP = Math.floor(Math.random() * 9000 + 1000);
         console.log(OTP);
         setOtp(OTP);
-        await axios.post("http://localhost:5000/send_email", {
+        await axios.post("https://rekonsys.onrender.com/send_email", {
           OTP,
           recipient_email: email,
         });
@@ -48,7 +48,7 @@ console.log(generateRandomNumber())
     }
 
     try {
-      await axios.put("http://localhost:5000/update-password", {
+      await axios.put("https://rekonsys.onrender.com/update-password", {
         email,
         newPassword,
       });

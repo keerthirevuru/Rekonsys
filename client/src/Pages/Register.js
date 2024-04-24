@@ -19,7 +19,7 @@ const Register = () => {
  const submitHandler = e => {
   const data = {email:Emailaddress,username:Username,password:Password}
     e.preventDefault();
-    axios.post('http://localhost:5000/register', data)
+    axios.post('https://rekonsys.onrender.com/register', data)
       .then(response => {
         console.log(response.data);
         alert("Submitted successfully");
